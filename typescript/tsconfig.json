@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "target": "es5", //Informa pra q versao o JS deve ser compilado
+        "module": "commonjs", //Module responsavel pela compilacao
+        "sourceMap": true //gerar o map 
+    },
+    
+}
