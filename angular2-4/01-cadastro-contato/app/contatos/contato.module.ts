@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
+
 
 import { CommonModule } from '@angular/common';
 import { ContatoDetalheComponent } from './detalhes/contato-detalhe.component'
@@ -9,12 +11,14 @@ import { ContatoService } from './contato.service'
 @NgModule({
     imports: [
         CommonModule,
-        ContatoRoutingModule
+        ContatoRoutingModule,
+        FormsModule
     ],
     // Usado para disponivilizar para os componentes deste mesmo modulo "Protect"
     declarations: [
         ContatosListaComponent,
-        ContatoDetalheComponent
+        ContatoDetalheComponent,
+      
     ],
     // Usando para export para outros modulos externos (Public)
     exports: [ContatosListaComponent],
