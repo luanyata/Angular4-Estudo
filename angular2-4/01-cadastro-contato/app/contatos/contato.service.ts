@@ -1,16 +1,24 @@
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/toPromise';
 
-
+import { Http } from '@angular/http';
 import { Contato } from './contato.model';
 import { CONTATOS } from './contatos-mock';
 import { resolve } from 'url';
 
 @Injectable()
 export class ContatoService {
+    private contatoUrl: string = 'app/contatos';
+    
+    constructor(
+        private http: Http
+    ) { }
 
 
     getContatos(): Promise<Contato[]> {
-        return Promise.resolve(CONTATOS);
+        return this.http.get(this.contatoUrl)
+            .toPromise()
+            .then(response => response.json().data as Contato[]);
     }
 
 

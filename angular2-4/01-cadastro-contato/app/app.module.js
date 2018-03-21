@@ -10,6 +10,9 @@ const platform_browser_1 = require("@angular/platform-browser");
 const app_component_1 = require("./app.component");
 const app_routing_module_1 = require("./app-routing.module");
 const contato_module_1 = require("./contatos/contato.module");
+const http_1 = require("@angular/http");
+const angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
+const in_memory_data_service_1 = require("./in-memory-data.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -18,6 +21,8 @@ AppModule = __decorate([
             app_routing_module_1.AppRoutingModule,
             platform_browser_1.BrowserModule,
             contato_module_1.ContatosModule,
+            http_1.HttpModule,
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService)
         ],
         declarations: [app_component_1.AppCompanent],
         bootstrap: [app_component_1.AppCompanent]

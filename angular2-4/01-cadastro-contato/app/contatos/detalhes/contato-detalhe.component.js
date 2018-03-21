@@ -18,6 +18,7 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
         this.contatoService = contatoService;
         this.route = route;
         this.location = location;
+        this.isNew = true;
     }
     ngOnInit() {
         console.log("On init");
@@ -27,6 +28,7 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
             // O uso do + converte a string em number
             let id = +params["id"];
             if (id) {
+                this.isNew = false;
                 this.contatoService.getContato(id)
                     .then((contato) => {
                     this.contato = contato;
@@ -35,12 +37,20 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
             console.log(id);
         });
     }
+    onSubmit() {
+        if (this.isNew) {
+            console.log("Cadastrar Usuario");
+        }
+        else {
+            console.log("Alterar Contato");
+        }
+    }
 };
 ContatoDetalheComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'contato-detalhe',
-        templateUrl: 'contato-detalhe.component.html'
+        templateUrl: 'contato-detalhe.component.html',
     }),
     __metadata("design:paramtypes", [contato_service_1.ContatoService,
         router_1.ActivatedRoute,
